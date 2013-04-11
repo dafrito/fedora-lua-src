@@ -21,7 +21,7 @@ pkgconfig_DATA = lua.pc
 bin_PROGRAMS = lua luac
 
 lua_SOURCES = lua.c
-lua_LDADD = liblua.la @LUA_LIBS@
+lua_LDADD = liblua.la @LUA_LIBS@ @READLINE_LIBS@
 lua_DEPENDENCIES = liblua.la
 
 luac_SOURCES = luac.c
