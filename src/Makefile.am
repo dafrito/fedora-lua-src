@@ -25,12 +25,9 @@ lua_LDADD = liblua.la @LUA_LIBS@ @READLINE_LIBS@
 lua_DEPENDENCIES = liblua.la
 
 luac_SOURCES = luac.c
-luac_LDADD = liblua.la @LUA_LIBS@
+# Statically link liblua against luac since luac uses symbols not exported in liblua
+luac_LDADD = .libs/liblua.a @LUA_LIBS@
 luac_DEPENDENCIES = liblua.la
-
-# luac must be linked statically because it uses functions that
-# don't get exported to the shared object
-luac_LDFLAGS = -static
 
 EXTRA_DIST = luaconf.h.template
 BUILT_SOURCES = luaconf.h
