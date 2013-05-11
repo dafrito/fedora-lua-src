@@ -42,11 +42,13 @@ esac
 
 POSIX_DEFS="#undef LUA_USE_POSIX"
 LUA_DL_DEFS="#undef LUA_USE_DLOPEN"
+
+# Don't use this, even on MinGW, since Autoconf will build a static
+# library that we can use just as well. If we did want to use this,
+# be sure to make libtool only build the dll, and not the static lib.
 LUA_BUILD_AS_DLL_DEFS="#undef LUA_BUILD_AS_DLL"
 
-if test "x$use_os" == "xwin32"; then
-  LUA_BUILD_AS_DLL_DEFS="#define LUA_BUILD_AS_DLL"
-elif test "x$use_os" == "xmacosx"; then
+if test "x$use_os" == "xmacosx"; then
   POSIX_DEFS="#define LUA_USE_POSIX"
   LUA_DL_DEFS="#define LUA_DL_DYLD"
 elif test "x$use_os" == "xposix"; then
