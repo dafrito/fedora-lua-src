@@ -153,6 +153,10 @@
 #define LUA_API __declspec(dllimport)
 #endif						/* } */
 
+#elif defined(__cplusplus)  /* } */
+
+#define LUA_API		extern "C"
+
 #else				/* }{ */
 
 #define LUA_API		extern
