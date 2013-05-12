@@ -9,5 +9,5 @@ Name: Lua
 Description: An Extensible Extension Language
 Version: ${R}
 Requires:
-Libs: -llua @LUA_LIBS@
+Libs: -L${libdir} -llua @LUA_LIBS@
 Cflags: -I${includedir}
